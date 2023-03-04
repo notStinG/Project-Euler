@@ -1,0 +1,38 @@
+## Defining a function for doing the fibonacci sequence
+def fibseq(fnum, nextnum, n):
+    fiblist = ["1", "2"]
+    buffer = 0
+    flag = True
+    while flag:
+        buffer = fnum + nextnum
+        fnum = nextnum
+        nextnum = buffer
+        if n > nextnum:                    ## Checking if number exceeds the integer "n" which is the cap and the number should not exceed it
+            fiblist.append(str(nextnum))
+        else:
+            flag = False
+    return fiblist
+
+## Preparing to store all the answers
+totallist = []
+
+## Asking user for the number of test cases
+t = int(input())
+
+
+for i in range(t):
+    ##  Initialising necessary variables
+    fnum = 1
+    nextnum = 2
+    total = 0
+    
+    n = int(input())                       ## Asking the user for the cap of the terms in the Fibonacci Sequence
+    fiblist = fibseq(fnum, nextnum, n)     ## Doing the fibonacci sequence first
+    for a in range(len(fiblist)):          ## Looping through every number
+        if int(fiblist[a]) % 2 == 0:       ## Checking if number is even
+            total += int(fiblist[a])       ## Adding into total if number even
+    totallist.append(total)                ## Adding total into the list to be printed
+
+## Printing out the answer
+for y in range(len(totallist)):
+    print(totallist[y])
