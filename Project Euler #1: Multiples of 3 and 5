@@ -9,8 +9,10 @@ def calculate(num, total):
       total += i
   return total
  
-## The main code
+## Asking for the number of test cases in t
 t = input()
+
+## Calculating the total
 for x in range(int(t)):
     total = 0
     checknumber = input()
